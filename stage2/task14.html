@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> 任务十四：面向零基础的JavaScript代码编写（二），难度简单。对JS的判断、循环、数组等有个初体验 </title>
+</head>
+
+<body>
+    <h3>污染城市列表</h3>
+    <ul id="aqi-list">
+        <!--   
+    <li>第一名：福州（样例），10</li>
+    <li>第二名：福州（样例），10</li> -->
+    </ul>
+    <script type="text/javascript">
+    var aqiData = [
+        ["北京", 90],
+        ["上海", 50],
+        ["福州", 10],
+        ["广州", 50],
+        ["成都", 90],
+        ["西安", 100]
+    ];
+    var order=["第一名","第二名","第三名","第四名","第五名","第六名"];
+    var ul=document.getElementById('aqi-list');
+
+    (function() {
+
+        /*
+        在注释下方编写代码
+        遍历读取aqiData中各个城市的数据
+        将空气质量指数大于60的城市显示到aqi-list的列表中
+        */
+       let resultData=aqiData.filter(x=>x[1]>60).sort((a,b)=>a[1]-b[1]);
+       let i=0;
+       resultData.map(x=>{
+        let text=order[i]+"："+x[0]+"，"+x[1];
+        let li=document.createElement("li");
+        li.innerHTML=text;
+        ul.appendChild(li);
+        i++;
+       });
+
+    })();
+    </script>
+</body>
+
+</html>
