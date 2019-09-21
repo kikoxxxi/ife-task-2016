@@ -83,24 +83,13 @@ TreeNode.prototype = {
         span.innerHTML = text;
         let addButton = document.createElement('i');
         addButton.className = "hidden";
-        // addButton.className = "fa fa-2x fa-plus-circle hidden";
         let deleteButton = document.createElement("i");
-        // deleteButton.className = "fa fa-2x fa-trash hidden";
         deleteButton.className = "hidden";
         li.appendChild(arrow);
         li.appendChild(icon);
         li.appendChild(span);
         li.appendChild(addButton);
         li.appendChild(deleteButton);
-        addHandler(li, "mouseleave", function() {
-            addButton.className = "";
-            deleteButton.className = "";
-        });
-        addHandler(li, "mouseenter", function() {
-            addButton.className = "fa fa-2x fa-plus-circle";
-            deleteButton.className = "fa fa-2x fa-trash";
-        });
-
         let ul = document.createElement("ul");
         ul.appendChild(li);
         if (this.isFolded()) {
@@ -148,14 +137,47 @@ TreeNode.prototype = {
 
 // 创建根节点对应的TreeNode对象
 let rootNode = document.getElementById('root');
-let rootLi = rootNode.firstElementChild;
-let addButton = rootLi.getElementsByClassName("hidden")[0];
-let root = new TreeNode({ parent: null, childs: [], data: "前端攻城狮", selfElement: rootNode, toggle: true });
-addHandler(rootLi, "mouseleave", function() {
-    addButton.className = "";
+let root = new TreeNode({ parent: null, childs: [], data: "kikoxxxi's MacBook", selfElement: rootNode, toggle: true });
+let treeArea = document.getElementById('tree-area');
+
+let setButtonVisible = function(buttons) {
+    buttons[0].className = "fa fa-2x fa-plus-circle button";
+    if (buttons.length > 1) {
+        buttons[1].className = "fa fa-2x fa-trash button";
+    }
+};
+
+let setButtonHidden = function(buttons) {
+    buttons[0].className = "hidden";
+    if (buttons.length > 1) {
+        buttons[1].className = "hidden";
+    }
+};
+
+let currentTarget = null;
+addHandler(rootNode, "mouseout", function(e) {
+    // 如果不在li里边直接返回不做处理
+    if (!currentTarget) return;
+    let relatedTarget = e.relatedTarget;
+    // 如果是在当前是子孩子，直接不做处理
+    if (relatedTarget) {
+        while (relatedTarget) {
+            if (relatedTarget == currentTarget) return;
+            relatedTarget = relatedTarget.parentNode;
+        }
+    }
+    setButtonHidden(currentTarget.querySelectorAll(".button"));
+    currentTarget = null;
 });
-addHandler(rootLi, "mouseenter", function() {
-    addButton.className = "fa fa-2x fa-plus-circle";
+
+// enter显示按钮
+addHandler(rootNode, "mouseover", function(e) {
+    if (currentTarget) return;
+    let target = getTarget(e);
+    if (target.nodeName.toLowerCase() === "li") {
+        currentTarget = target;
+        setButtonVisible(target.querySelectorAll(".hidden"));
+    }
 });
 
 
