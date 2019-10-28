@@ -20,7 +20,7 @@ btnStart.onclick = function() {
 let queueOption = function() {
     let node = queue.shift();
     if (node) {
-        node.style.backgroundColor = "pink";
+        node.style.backgroundColor = "#9ea7bb";
         setTimeout(function() {
             node.style.backgroundColor = "white";
             queueOption();

@@ -12,10 +12,31 @@ div {
     -ms-flex-positive: 1;
     flex-grow: 1;
     transition: background-color 1000ms;
+    border-radius: 10px;
 }
 
 #tree {
     width: 80%;
     height: 300px;
     margin: 20px auto;
+}
+
+input {
+    border: 1px solid transparent;
+    background-color: #4e4a67;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 5px 9px;
+    text-align: center;
+    user-select: none;
+    width: auto;
+    font-size: 14px;
+    outline: none;
+    line-height: 18px;
+}
+
+input:hover {
+    background-color: #9ea7bb;
 }
