@@ -1,0 +1,75 @@
+* {
+    font-family: "Microsoft YaHei UI", sans-serif;
+    font-size: 10px;
+}
+
+section{
+    display: flex;
+    flex-grow: 1;
+}
+
+div {
+    border: 2px solid;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 10px 10px;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    transition: background-color 800ms;
+    border-radius: 5px;
+}
+
+.one {
+    border-color: #393f65;
+    height: 300px;
+}
+
+.two {
+    border-color: #9999cc;
+}
+
+.three {
+    border-color: #cc9999;
+}
+
+.four {
+    border-color: #ffcccc;
+}
+
+.five {
+    border-color: #9ea7bb;
+}
+
+
+#choose {
+    text-align: center;
+    border-radius: 20px;
+    border-color: #393f65;
+}
+
+button {
+    margin: 20px;
+    outline: none;
+    border: none;
+    height: 50px;
+    border-radius: 20px;
+    background: #393f65;
+    color: white;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+
+.disabled {
+    background: #9ea7bb;
+    color: #393f65;
+}
+
+button:hover {
+    cursor: pointer;
+    background: #9ea7bb;
+    color: #393f65;
+}

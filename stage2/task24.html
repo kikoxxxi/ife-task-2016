@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> 任务二十四：JavaScript和树（三），难度中等。用JavaScript实践多叉树的节点相关操作</title>
+    <link rel="stylesheet" href="css/task23.css">
+</head>
+
+<body>
+    <section>
+        <div class="one">
+            Super
+            <div class="two">
+                Apple
+                <div class="three">
+                    Cow
+                    <div class="four">Yellow</div>
+                    <div class="four">
+                        Blue
+                        <div class="five">Color</div>
+                        <div class="five">Black</div>
+                        <div class="five">Angela</div>
+                    </div>
+                </div>
+                <div class="three">
+                    Phone
+                </div>
+                <div class="three">
+                    Music
+                    <div class="four">Book</div>
+                    <div class="four">
+                        School
+                        <div class="five">Pace</div>
+                    </div>
+                </div>
+            </div>
+            <div class="two">
+                Orange
+                <div class="three">
+                    Human
+                    <div class="four">Code</div>
+                    <div class="four">Man</div>
+                    <div class="four">Sport</div>
+                </div>
+                <div class="three">
+                    Woman
+                    <div class="four">
+                        Shop
+                        <div class="five">Buy</div>
+                    </div>
+                    <div class="four">Glass</div>
+                </div>
+            </div>
+            <div class="two">
+                Fish
+            </div>
+        </div>
+    </section>
+    <fieldset id="choose">
+        <legend>选项卡</legend>
+        <button id="DFS">深度优先搜索</button>
+        <button id="BFS">广度优先搜索</button>
+        <button id="insert">插入节点</button>
+        <button id="delete">删除节点</button><br>
+        <label for="search">输入想要查找/添加的内容，然后再选择上面的按钮：<input id="search" type="text" value="Cow"></label>
+    </fieldset>
+    <script src="js/task24.js"></script>
+</body>
+
+</html>
